@@ -71,10 +71,14 @@ export class App extends Component {
         <ContactForm addContact={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.updateFilter} />
-        <ContactList
-          contacts={vivsibleContacts}
-          onDelete={this.deleteContact}
-        />
+        {vivsibleContacts.length !== 0 ? (
+          <ContactList
+            contacts={vivsibleContacts}
+            onDelete={this.deleteContact}
+          />
+        ) : (
+          <h3>Your contacts will be here</h3>
+        )}
       </AppWrapper>
     );
   }
